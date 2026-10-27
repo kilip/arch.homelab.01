@@ -1,0 +1,17 @@
+nine_router: ENC[AES256_GCM,data:uw+maQ==,iv:ubqLFOu681I/5HseLhliPXNYamR/00tdGeLbZQKu9vs=,tag:2T5X8V/Mcx6jHc867ROXkg==,type:bool]
+nine_router_password: ENC[AES256_GCM,data:pn2nhQVjgGRAmQ1q,iv:H+r7buqjvVi1FN+AefRkiD5ka2KyK/0ewUVl+59xLaQ=,tag:EKvFIZdlOv7mPrqmfZY1DQ==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB4WWxMYVBMcjM0ejdMZ2c4
+            NlBRVEZhOTlMR2NzNHg5VWxLRmlicDY1NUdzClg2cVBCSXc1ME5WMDR6ZEwxMDE3
+            cU9IZ0JJMUMwMU5kOVBvUG4vYmdQTGMKLS0tIExIR0tKY0NYdFk4alZWbzZnalVU
+            c0hrbmhQa1YycGNkNnNVRnZaZ3VJRVkKRPqbSAUcHDd46lkRXW9qqIb4L/oFXXQR
+            ms2n2RQo9E55yA37s+Kg4I6IKfqRKYF5wnHlf+XH8o/RKAB4RUWtxg==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1fjy59ujj3j4e5l37wzsntvl288m06qyj97nujyklefw67eg5r9usuj4qxh
+    lastmodified: "2026-10-27T00:55:02Z"
+    mac: ENC[AES256_GCM,data:dXK+anJVhwikWZ2WvRDd6SDQGKOP3nEBGiUKIlEVG98w+lxtXFCRnK+EaZ/iB6Bhazoti1xK3KodISM+T6G/QjL5E24Bwybgqc1qgOGJuI1BT6aJXv8/9BP86v11td+sMbnlZHIcFGQ1HKhr/J3e4FcYLHE1JjbFU2yq9xGq8Fw=,iv:OjsBSbx1jneWie2WT3IQvgJpE7QpY7714rgSGVYNcpk=,tag:UxEp/oGKB3SjscFNNelEgQ==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.13.3

@@ -69,3 +69,12 @@ rustfs_version: 1.0.1
 rustfs_image: rustfs/rustfs:{{ rustfs_version }}
 rustfs_access_key: rustfsadmin
 rustfs_secret_key: rustfsadmin
+
+nine_router: false
+# renovate: datasource=docker depName=decolua/9router
+nine_router_version: 0.5.111
+nine_router_image: decolua/9router:{{ nine_router_version }}
+nine_router_password: "9router"
+# renovate: datasource=docker depName=ghcr.io/headroomlabs-ai/headroom
+headroom_version: 0.42.0
+headroom_image: ghcr.io/headroomlabs-ai/headroom:latest

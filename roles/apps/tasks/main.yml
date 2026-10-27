@@ -40,6 +40,7 @@
     apply:
       tags: zabbix
   tags: zabbix
+  when: zabbix
 
 - name: Ensure waha service configured
   ansible.builtin.include_tasks:
@@ -47,6 +48,7 @@
     apply:
       tags: waha
   tags: waha
+  when: waha
 
 - name: Ensure n8n service configured
   ansible.builtin.include_tasks:
@@ -61,6 +63,7 @@
     apply:
       tags: kafka
   tags: kafka
+  when: kafka
 
 - name: Ensure rustfs service configured
   ansible.builtin.include_tasks:
@@ -68,3 +71,11 @@
     apply:
       tags: rustfs
   tags: rustfs
+  when: rustfs
+
+- name: Ensure 9router service configured
+  ansible.builtin.include_tasks:
+    file: 9router.yml
+    apply:
+      tags: 9router
+  tags: 9router

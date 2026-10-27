@@ -1,0 +1,47 @@
+---
+- name: Ensure 9router installed and configured
+  when: nine_router
+  block:
+    - name: Ensure 9router dir
+      ansible.builtin.file:
+        path: "/srv/9router"
+        state: "directory"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: "0755"
+
+    - name: Ensure 9router image pulled
+      community.docker.docker_image:
+        name: "{{ nine_router_image }}"
+        source: pull
+
+    - name: Ensure headroom container started
+      community.docker.docker_container:
+        name: headroom
+        image_name_mismatch: recreate
+        state: started
+        image: "{{ headroom_image }}"
+        networks:
+          - name: "{{ docker_network }}"
+
+    - name: Ensure 9router container started
+      community.docker.docker_container:
+        name: 9router
+        image_name_mismatch: recreate
+        state: started
+        image: "{{ nine_router_image }}"
+        networks:
+          - name: "{{ docker_network }}"
+        volumes:
+          - "/srv/9router:/data"
+        env:
+          DATA_DIR: "/data"
+          HEADROOM_URL: http://headroom:8787
+          INITIAL_PASSWORD: "{{ nine_router_password }}"
+        labels:
+          traefik.enable: "true"
+          traefik.http.routers.9router.entrypoints: websecure
+          traefik.http.routers.9router.rule: "Host(`9router.{{ traefik_domain }}`)"
+          traefik.http.services.9router.loadbalancer.server.port: "20128"
+          dockerdns.pihole.cname.domain: "9router.{{ traefik_domain }}"
+          dockerdns.pihole.cname.target: "{{ full_hostname }}"
